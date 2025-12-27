@@ -1,23 +1,16 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
-require("config.lazy")
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
+require("config.lazy")
 vim.opt.termguicolors = true
 
-vim.keymap.set("n", "<leader>cne", function()
-  vim.api.nvim_exec2("!ninja -C build && ./build/main", {})
-end, { silent = true })
 
-vim.keymap.set("n", "<c-/>", function()
-  Snacks.terminal(nil, { cwd = LazyVim.root() })
-end, { desc = "Terminal (Root Dir)" })
+local map = vim.keymap.set
 
---asdasdadyy
---asdasdadyy
---asdasdadyy
---asdasdadyy
---asdasdadyy
---asdasdadyy
---testtest
---testtest
---testtest
---testtest
+-- Move between windows using Control + hjkl
+map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window" })
+map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window" })
+map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window" })
+map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window" })
+
+
