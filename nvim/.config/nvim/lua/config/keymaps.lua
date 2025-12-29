@@ -14,4 +14,3 @@ end, { silent = true })
 vim.keymap.set("n", "<c-.>", function()
   Snacks.terminal(nil, { cwd = LazyVim.root() })
 end, { desc = "Terminal (Root Dir)" })
-
