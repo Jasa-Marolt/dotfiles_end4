@@ -1,5 +1,35 @@
-return{
-  'nvim-treesitter/nvim-treesitter',
+return {
+  "nvim-treesitter/nvim-treesitter",
   lazy = false,
-  build = ':TSUpdate'
+  build = ":TSUpdate",
+  opts = {
+
+    ensure_installed = {
+      "bash",
+      "cpp",
+      "c",
+      "diff",
+      "html",
+      "javascript",
+      "jsdoc",
+      "json",
+      "jsonc",
+      "lua",
+      "luadoc",
+      "luap",
+      "markdown",
+      "markdown_inline",
+      "printf",
+      "python",
+      "query",
+      "regex",
+      "toml",
+      "tsx",
+      "typescript",
+      "vim",
+      "vimdoc",
+      "xml",
+      "yaml",
+    },
+  },
 }

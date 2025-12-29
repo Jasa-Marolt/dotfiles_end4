@@ -4,7 +4,7 @@ vim.g.maplocalleader = " "
 vim.opt.termguicolors = true
 
 require("config.lazy")
-vim.lsp.enable("lua_ls")
+
 local map = vim.keymap.set
 -- Move between windows using Control + hjkl
 map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window" })
