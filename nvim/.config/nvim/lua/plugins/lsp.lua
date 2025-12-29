@@ -42,7 +42,7 @@ return {
           "--background-index",
           "--clang-tidy",
           "--completion-style=detailed",
-          "--header-insertion=iwyu",  -- Enable automatic header insertion
+          "--header-insertion=iwyu", -- Enable automatic header insertion
         },
       })
 
@@ -58,17 +58,17 @@ return {
             return
           end
 
-          -- Keymaps for LSP functions
-          local opts = { buffer = args.buf }
-          vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-          vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-          vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-          vim.keymap.set("n", "gI", vim.lsp.buf.implementation, opts)
-          vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
-          vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-          vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, opts)
-          vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-          vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
+          -- -- Keymaps for LSP functions
+          -- local opts = { buffer = args.buf }
+          -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+          -- vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+          -- vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+          -- vim.keymap.set("n", "gI", vim.lsp.buf.implementation, opts)
+          -- vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
+          -- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+          -- vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, opts)
+          -- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+          -- vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
         end,
       })
     end,

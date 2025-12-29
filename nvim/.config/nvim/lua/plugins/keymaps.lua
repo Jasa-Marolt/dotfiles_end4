@@ -1,3 +1,10 @@
+vim.keymap.set("n", "<c-.>", function()
+  Snacks.terminal.toggle(nil, { cwd = vim.fn.getcwd() })
+end, { desc = "Toggle terminal (Root Dir)" })
+
+vim.keymap.set("t", "<c-.>", function()
+  Snacks.terminal.toggle()
+end, { desc = "Hide terminal" })
 return {
   -- This is a 'plugin' spec, but we use it to add keymaps
   {
