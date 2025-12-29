@@ -13,6 +13,23 @@ vim.keymap.set("t", "<C-.>", function()
   Snacks.terminal.toggle()
 end, { desc = "Terminal: Hide" })
 
+-- Move back to previous window (main buffer)
+vim.keymap.set("t", "<C-,>", [[<C-\><C-n><C-w>p]], { desc = "Go to previous window" })
+
+-- Show terminal keybinds help
+vim.keymap.set("t", "?", function()
+  local help_text = [[
+Terminal Mode Keybinds:
+  <C-.>       - Hide/close terminal
+  <C-,>       - Go to previous window
+  <C-h/j/k/l> - Navigate to window (left/down/up/right)
+  <C-Up>      - Increase terminal height
+  <C-Down>    - Decrease terminal height
+  ?           - Show this help
+]]
+  vim.notify(help_text, vim.log.levels.INFO)
+end, { desc = "Show terminal keybinds help" })
+
 local function run_build_cmd()
   local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
   for _, line in ipairs(lines) do
