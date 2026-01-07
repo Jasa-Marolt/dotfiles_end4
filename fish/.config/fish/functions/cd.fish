@@ -1,9 +1,10 @@
-function cd --wraps='z;ls' --description 'alias cd (zoxide) fallback to builtin cd; ls'
-    # Check if 'z' (zoxide) command is available
-    if command -q z
+function cd 
+    # Check if 'z' (zoxide) function is available
+    if functions -q z
         # If 'z' is found, try to use it
-        if not z $argv
-            # If 'z' fails, fall back to the built-in cd
+        z $argv
+        # If 'z' fails, fall back to the built-in cd
+        if test $status -ne 0
             builtin cd $argv
         end
     else
