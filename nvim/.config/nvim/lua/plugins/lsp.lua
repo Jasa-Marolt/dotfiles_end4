@@ -46,9 +46,39 @@ return {
         },
       })
 
+      -- Configure eslint-tsp (TypeScript/JavaScript with ESLint)
+      vim.lsp.config("eslint-tsp", {
+        capabilities = capabilities,
+        settings = {
+          typescript = {
+            inlayHints = {
+              includeInlayParameterNameHints = "all",
+              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayVariableTypeHints = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayEnumMemberValueHints = true,
+            },
+          },
+          javascript = {
+            inlayHints = {
+              includeInlayParameterNameHints = "all",
+              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayVariableTypeHints = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayEnumMemberValueHints = true,
+            },
+          },
+        },
+      })
+
       -- Enable LSP servers for their filetypes
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("clangd")
+      vim.lsp.enable("eslint-tsp")
 
       -- Set up keymaps when LSP attaches to a buffer
       vim.api.nvim_create_autocmd("LspAttach", {

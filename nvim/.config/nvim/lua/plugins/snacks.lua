@@ -34,7 +34,7 @@ return {
             },
         },
 
-        explorer = { enabled = true },
+        explorer = { enabled = true, opts = { trash = false } },
         indent = { enabled = true },
         input = { enabled = true },
         notifier = {
