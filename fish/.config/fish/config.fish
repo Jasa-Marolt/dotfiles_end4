@@ -6,6 +6,13 @@ function fish_prompt -d "Write out the prompt"
         (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
 end
 
+if not set -q SSH_AUTH_SOCK
+    #start the ssh agenttest
+    eval (ssh-agent -c) > /dev/null
+#add the github ssh key
+    ssh-add ~/.ssh/id_ed25519 2> /dev/null
+end
+
 if status is-interactive # Commands to run in interactive sessions can go here
 
     # No greeting

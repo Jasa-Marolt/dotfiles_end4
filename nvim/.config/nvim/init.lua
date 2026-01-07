@@ -12,6 +12,7 @@ require("config.lazy")
 
 local map = vim.keymap.set
 map("n", "q:", "<nop>")
+map("n", "qq", "<nop>")
 
 -- Move between windows using Control + hjkl
 map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window" })
