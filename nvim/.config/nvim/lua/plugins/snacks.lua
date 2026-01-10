@@ -1,4 +1,5 @@
 return {
+
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
@@ -54,26 +55,6 @@ return {
         },
     },
     keys = {
-        {
-            "<leader>b",
-            group = "Buffer",
-        },
-        {
-            "<leader>g",
-            group = "Git",
-        },
-        {
-            "<leader>r",
-            group = "Run",
-        },
-        {
-            "<leader>u",
-            group = "Visuals",
-        },
-        {
-            "<leader>s",
-            group = "Search",
-        },
 
         -- Top Pickers & Explorer
         {
@@ -93,14 +74,12 @@ return {
             function()
                 Snacks.picker.buffers()
             end,
-            desc = "Buffers",
         },
         {
             "<leader>/",
             function()
                 Snacks.picker.grep()
             end,
-            desc = "Grep",
         },
         {
             "<leader>:",

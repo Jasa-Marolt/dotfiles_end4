@@ -52,6 +52,48 @@ local function run_build_cmd()
     end
     vim.notify("No BUILD: found in file", vim.log.levels.WARN)
 end
+local function delete_small_parentheses()
+    Snacks.notify("hello")
+    local line = vim.api.nvim_get_current_line()
+    local _, col = unpack(vim.api.nvim_win_get_cursor(0))
+    col = col + 1 -- Lua strings are 1-indexed
+
+    -- Find the nearest '(' to the left
+    local left_pos = nil
+    for i = col, 1, -1 do
+        if line:sub(i, i) == "(" or line:sub(i, i) == "," then
+            left_pos = i
+            break
+        end
+    end
+
+    -- Find the nearest ')' to the right
+    local right_pos = nil
+    for i = col, #line do
+        if line:sub(i, i) == ")" or line:sub(i, i) == "," then
+            right_pos = i
+            break
+        end
+    end
+
+    -- Validate positions and check distance
+    if left_pos and right_pos then
+        local diff = right_pos - left_pos - 1
+        if diff > 0 and diff <= 20 then
+            local new_line = line:sub(1, left_pos) .. line:sub(right_pos)
+            vim.api.nvim_set_current_line(new_line)
+
+            vim.api.nvim_win_set_cursor(0, { vim.api.nvim_win_get_cursor(0)[1], left_pos - 1 })
+        else
+            print("Gap too large (" .. diff .. ") or empty")
+        end
+    else
+        print("Parentheses not found")
+    end
+end
+vim.keymap.set("n", "di,", delete_small_parentheses, {
+    desc = "deletes a function argument",
+})
 
 -- Set the keybinding (e.g., <leader>rb for "Run Build")
 vim.keymap.set("n", "<leader>rb", run_build_cmd, { desc = "Run BUILD: from file" })

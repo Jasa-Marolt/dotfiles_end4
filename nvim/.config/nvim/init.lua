@@ -9,30 +9,6 @@ vim.opt.expandtab = true
 
 vim.opt.clipboard = "unnamedplus"
 require("config.lazy")
-require("config.keymaps")
-
-local map = vim.keymap.set
-map("n", "q:", "<nop>")
-map("n", "qq", "<nop>")
-vim.keymap.set({ "n" }, "<C-s>", function()
-    vim.cmd("w")
-end, { desc = "Save file" })
-
--- Move between windows using Control + hjkl
-map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window" })
-map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window" })
-map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window" })
-map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window" })
-map("i", "<C-h>", "<Left>", { desc = "Move left" })
-map("i", "<C-j>", "<Down>", { desc = "Move down" })
-map("i", "<C-k>", "<Up>", { desc = "Move up" })
-map("i", "<C-l>", "<Right>", { desc = "Move right" })
-
--- Center cursor after certain movements
-map("n", "n", "nzz", { desc = "Next search result (centered)" })
-map("n", "N", "Nzz", { desc = "Previous search result (centered)" })
-map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down (centered)" })
-map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up (centered)" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight when yanking (copying) text",
