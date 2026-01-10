@@ -53,7 +53,7 @@ local function run_build_cmd()
     vim.notify("No BUILD: found in file", vim.log.levels.WARN)
 end
 local function delete_small_parentheses()
-    Snacks.notify("hello")
+    Snacks.notify("removed function param")
     local line = vim.api.nvim_get_current_line()
     local _, col = unpack(vim.api.nvim_win_get_cursor(0))
     col = col + 1 -- Lua strings are 1-indexed
@@ -79,7 +79,8 @@ local function delete_small_parentheses()
     -- Validate positions and check distance
     if left_pos and right_pos then
         local diff = right_pos - left_pos - 1
-        if diff > 0 and diff <= 20 then
+
+        if diff > 0 and diff <= 40 then
             local new_line = line:sub(1, left_pos) .. line:sub(right_pos)
             vim.api.nvim_set_current_line(new_line)
 
@@ -92,7 +93,7 @@ local function delete_small_parentheses()
     end
 end
 vim.keymap.set("n", "di,", delete_small_parentheses, {
-    desc = "deletes a function argument",
+    desc = "delete function parameter",
 })
 
 -- Set the keybinding (e.g., <leader>rb for "Run Build")
