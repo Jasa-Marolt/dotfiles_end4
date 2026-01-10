@@ -81,15 +81,28 @@ vim.keymap.set("n", "]d", vim.diagnostic.get_prev, { desc = "Go to next diagnost
 
 -- Open diagnostic list (Quickfix)
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setqflist, { desc = "Open diagnostic list" })
+vim.keymap.set("v", "p", [["_dP]], { desc = "Paste (discard overwritten text)" })
+vim.keymap.set("v", "P", [["_dP]], { desc = "Paste (discard overwritten text)" })
 
-return {
-    -- This is a 'plugin' spec, but we use it to add keymaps
-    {
-        "LazyVim/LazyVim", -- Use an existing plugin to attach your maps
-        keys = {
-            -- Visual Mode Paste Remap
-            { "p", [["_dP]], mode = "v", desc = "Paste (discard overwritten text)" },
-            { "P", [["_dP]], mode = "v", desc = "Paste (discard overwritten text)" },
-        },
-    },
-}
+local map = vim.keymap.set
+map("n", "q:", "<nop>")
+map("n", "qq", "<nop>")
+vim.keymap.set({ "n" }, "<C-s>", function()
+    vim.cmd("w")
+end, { desc = "Save file" })
+
+-- Move between windows using Control + hjkl
+map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window" })
+map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window" })
+map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window" })
+map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window" })
+map("i", "<C-h>", "<Left>", { desc = "Move left" })
+map("i", "<C-j>", "<Down>", { desc = "Move down" })
+map("i", "<C-k>", "<Up>", { desc = "Move up" })
+map("i", "<C-l>", "<Right>", { desc = "Move right" })
+
+-- Center cursor after certain movements
+map("n", "n", "nzz", { desc = "Next search result (centered)" })
+map("n", "N", "Nzz", { desc = "Previous search result (centered)" })
+map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down (centered)" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up (centered)" })

@@ -9,13 +9,14 @@ vim.opt.expandtab = true
 
 vim.opt.clipboard = "unnamedplus"
 require("config.lazy")
+require("config.keymaps")
 
 local map = vim.keymap.set
 map("n", "q:", "<nop>")
 map("n", "qq", "<nop>")
-map("n", "<C-s>", function()
+vim.keymap.set({ "n" }, "<C-s>", function()
     vim.cmd("w")
-end)
+end, { desc = "Save file" })
 
 -- Move between windows using Control + hjkl
 map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window" })
