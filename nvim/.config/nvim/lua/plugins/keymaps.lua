@@ -149,3 +149,5 @@ map("n", "n", "nzz", { desc = "Next search result (centered)" })
 map("n", "N", "Nzz", { desc = "Previous search result (centered)" })
 map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down (centered)" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up (centered)" })
+
+return {}
