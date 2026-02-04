@@ -31,6 +31,8 @@ return {
             preset = "enter",
             ["<Up>"] = { "select_prev", "fallback" },
             ["<Down>"] = { "select_next", "fallback" },
+            ["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
+            ["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
             -- disable a keymap from the preset
             ["<C-e>"] = false, -- or {}
 
@@ -42,15 +44,15 @@ return {
             },
 
             -- control whether the next command will be run when using a function
-            ["<C-n>"] = {
-                function(cmp)
-                    if some_condition then
-                        return
-                    end -- runs the next command
-                    return true -- doesn't run the next command
-                end,
-                "select_next",
-            },
+            -- ["<C-n>"] = {
+            --     function(cmp)
+            --         if some_condition then
+            --             return
+            --         end -- runs the next command
+            --         return true -- doesn't run the next command
+            --     end,
+            --     "select_next",
+            -- },
         },
         appearance = {
             -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'

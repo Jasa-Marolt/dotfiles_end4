@@ -1,3 +1,17 @@
+--test
+
+vim.keymap.set("n", "č", function()
+    local buf = vim.api.nvim_get_current_buf()
+    local row = vim.api.nvim_win_get_cursor(0)[1] - 1
+
+    -- Define the highlight namespace
+    local ns = vim.api.nvim_create_namespace("line_highlighter")
+    vim.api.nvim_buf_clear_namespace(buf, ns, 0, -1)
+
+    -- Apply highlight to the current line range
+    vim.api.nvim_buf_add_highlight(buf, ns, "Visual", row, 0, -1)
+end, { desc = "Highlight line using TS namespace" })
+
 -- Outside (Normal Mode): Open or Focus
 vim.keymap.set("n", "<C-.>", function()
     local term = Snacks.terminal.get(nil, { cwd = vim.fn.getcwd() })
@@ -139,10 +153,10 @@ map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window" })
 map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window" })
-map("i", "<C-h>", "<Left>", { desc = "Move left" })
-map("i", "<C-j>", "<Down>", { desc = "Move down" })
-map("i", "<C-k>", "<Up>", { desc = "Move up" })
-map("i", "<C-l>", "<Right>", { desc = "Move right" })
+-- map("i", "<C-h>", "<Left>", { desc = "Move left" })
+-- map("i", "<C-j>", "<Down>", { desc = "Move down" })
+-- map("i", "<C-k>", "<Up>", { desc = "Move up" })
+-- map("i", "<C-l>", "<Right>", { desc = "Move right" })
 
 -- Center cursor after certain movements
 map("n", "n", "nzz", { desc = "Next search result (centered)" })
