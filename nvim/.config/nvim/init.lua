@@ -20,6 +20,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+-- Add to ~/.config/nvim/init.lua
+vim.keymap.set("n", "<leader>gm", function()
+    local word = vim.fn.expand("<cword>")
+    if word:match("^gl") then
+        vim.cmd("Man " .. word)
+    end
+end, { desc = "Open man page for OpenGL function" })
 --lsp progress using snacks notif
 ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
 local progress = vim.defaulttable()
