@@ -7,6 +7,7 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.cursorline = true
 vim.opt.clipboard = "unnamedplus"
+vim.o.sessionoptions = "buffers,curdir,tabpages,winsize,help,globals,skiprtp,folds"
 require("config.lazy")
 
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -27,6 +28,16 @@ vim.keymap.set("n", "<leader>gm", function()
         vim.cmd("Man " .. word)
     end
 end, { desc = "Open man page for OpenGL function" })
+
+vim.keymap.set("n", "<leader>gM", function()
+    local word = vim.fn.expand("<cword>")
+    if word:match("^gl") then
+        require("telescope.builtin").man_pages({
+            sections = { "ALL" },
+            default_text = word,
+        })
+    end
+end, { desc = "Open OpenGL man page" })
 --lsp progress using snacks notif
 ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
 local progress = vim.defaulttable()
