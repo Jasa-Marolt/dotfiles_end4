@@ -46,8 +46,8 @@ return {
         },
       })
 
-      -- Configure eslint-tsp (TypeScript/JavaScript with ESLint)
-      vim.lsp.config("eslint-tsp", {
+      -- Configure TypeScript/JavaScript LSP
+      vim.lsp.config("ts_ls", {
         capabilities = capabilities,
         settings = {
           typescript = {
@@ -75,10 +75,22 @@ return {
         },
       })
 
+      -- Configure ESLint for linting
+      vim.lsp.config("eslint", {
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+          })
+        end,
+      })
+
       -- Enable LSP servers for their filetypes
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("clangd")
-      vim.lsp.enable("eslint-tsp")
+      vim.lsp.enable("ts_ls")
+      vim.lsp.enable("eslint")
 
       -- Set up keymaps when LSP attaches to a buffer
       vim.api.nvim_create_autocmd("LspAttach", {
