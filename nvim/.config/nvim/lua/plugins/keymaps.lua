@@ -18,17 +18,19 @@ end, { desc = "Load last session" })
 vim.keymap.set("n", "<leader>qd", function()
     require("persistence").stop()
 end, { desc = "Stop persistence" })
-vim.keymap.set("n", "č", function()
-    local buf = vim.api.nvim_get_current_buf()
-    local row = vim.api.nvim_win_get_cursor(0)[1] - 1
 
-    -- Define the highlight namespace
-    local ns = vim.api.nvim_create_namespace("line_highlighter")
-    vim.api.nvim_buf_clear_namespace(buf, ns, 0, -1)
-
-    -- Apply highlight to the current line range
-    vim.api.nvim_buf_add_highlight(buf, ns, "Visual", row, 0, -1)
-end, { desc = "Highlight line using TS namespace" })
+-- highlight a line
+-- vim.keymap.set("n", "č", function()
+--     local buf = vim.api.nvim_get_current_buf()
+--     local row = vim.api.nvim_win_get_cursor(0)[1] - 1
+--
+--     -- Define the highlight namespace
+--     local ns = vim.api.nvim_create_namespace("line_highlighter")
+--     vim.api.nvim_buf_clear_namespace(buf, ns, 0, -1)
+--
+--     -- Apply highlight to the current line range
+--     vim.api.nvim_buf_add_highlight(buf, ns, "Visual", row, 0, -1)
+-- end, { desc = "Highlight line using TS namespace" })
 
 -- Outside (Normal Mode): Open or Focus
 vim.keymap.set("n", "<C-.>", function()
@@ -49,18 +51,18 @@ end, { desc = "Terminal: Hide" })
 vim.keymap.set("t", "<C-,>", [[<C-\><C-n><C-w>p]], { desc = "Go to previous window" })
 
 -- Show terminal keybinds help
-vim.keymap.set("t", "?", function()
-    local help_text = [[
-Terminal Mode Keybinds:
-  <C-.>       - Hide/close terminal
-  <C-,>       - Go to previous window
-  <C-h/j/k/l> - Navigate to window (left/down/up/right)
-  <C-Up>      - Increase terminal height
-  <C-Down>    - Decrease terminal height
-  ?           - Show this help
-]]
-    vim.notify(help_text, vim.log.levels.INFO)
-end, { desc = "Show terminal keybinds help" })
+-- vim.keymap.set("t", "?", function()
+--     local help_text = [[
+-- Terminal Mode Keybinds:
+--   <C-.>       - Hide/close terminal
+--   <C-,>       - Go to previous window
+--   <C-h/j/k/l> - Navigate to window (left/down/up/right)
+--   <C-Up>      - Increase terminal height
+--   <C-Down>    - Decrease terminal height
+--   ?           - Show this help
+-- ]]
+--     vim.notify(help_text, vim.log.levels.INFO)
+-- end, { desc = "Show terminal keybinds help" })
 
 local function run_build_cmd()
     local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
