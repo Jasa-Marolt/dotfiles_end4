@@ -36,7 +36,8 @@ python -m ipykernel install --user --name project_name
 
 
 # To run .ipynb
+//run this on main terminal before opening nvim
 source .venv/bin/activate.fish
-open file
+nvim test.ipynb
 <leader>m i  or :MoltenInit python3
 

@@ -1,5 +1,6 @@
 return {
     "GCBallesteros/jupytext.nvim",
+    enabled = false,
     lazy = false,
     config = function()
         require("jupytext").setup({
