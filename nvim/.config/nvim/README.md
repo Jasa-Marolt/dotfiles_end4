@@ -41,3 +41,14 @@ source .venv/bin/activate.fish
 nvim test.ipynb
 <leader>m i  or :MoltenInit python3
 
+# Remote plugins update
+like molten
+run :UpdateRemotePlugins
+
+# py to notebook
+ open env with the jupytext
+ jupytext --to notebook file.py
+ or jupytext --to py notebook.ipynb
+
+
+
