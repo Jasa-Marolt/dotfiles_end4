@@ -1,10 +1,11 @@
 return {
     "Root-lee/screensaver.nvim",
+    cond = not vim.g.vscode,
     config = function()
         --:ScreensaverStart
         require("screensaver").setup({
             -- ⏱️ Time in milliseconds before the screensaver starts
-            idle_ms = 60 * 1000,
+            idle_ms = 60 * 1000 * 5,
 
             -- 🚀 Automatically start screensaver after idle time (set to false for manual only)
             auto_start = true,

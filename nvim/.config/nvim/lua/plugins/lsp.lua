@@ -86,11 +86,29 @@ return {
         end,
       })
 
+      -- Configure Python LSP (basedpyright for type checking + diagnostics)
+      vim.lsp.config("basedpyright", {
+        capabilities = capabilities,
+        root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "pyrightconfig.json", ".git" },
+        settings = {
+          basedpyright = {
+            analysis = {
+              typeCheckingMode = "basic", -- "off", "basic", or "strict"
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+              diagnosticMode = "workspace",
+              stubPath = vim.fn.stdpath("data") .. "/lazy/python-type-stubs",
+            },
+          },
+        },
+      })
+
       -- Enable LSP servers for their filetypes
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("clangd")
       vim.lsp.enable("ts_ls")
       vim.lsp.enable("eslint")
+      vim.lsp.enable("basedpyright")
 
       -- Set up keymaps when LSP attaches to a buffer
       vim.api.nvim_create_autocmd("LspAttach", {

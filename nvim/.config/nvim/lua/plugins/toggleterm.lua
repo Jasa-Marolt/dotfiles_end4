@@ -1,3 +1,3 @@
 return {
-  { "akinsho/toggleterm.nvim", version = "*", opts = {} },
+  { "akinsho/toggleterm.nvim", version = "*", cond = not vim.g.vscode, opts = {} },
 }

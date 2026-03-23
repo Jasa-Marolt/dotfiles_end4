@@ -41,10 +41,12 @@ vim.keymap.set("n", "<leader>gM", function()
         })
     end
 end, { desc = "Open OpenGL man page" })
---lsp progress using snacks notif
----@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
-local progress = vim.defaulttable()
-vim.api.nvim_create_autocmd("LspProgress", {
+
+if not vim.g.vscode then
+    --lsp progress using snacks notif
+    ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
+    local progress = vim.defaulttable()
+    vim.api.nvim_create_autocmd("LspProgress", {
     ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
     callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
@@ -83,5 +85,6 @@ vim.api.nvim_create_autocmd("LspProgress", {
                     or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
             end,
         })
-    end,
-})
+        end,
+    })
+end
