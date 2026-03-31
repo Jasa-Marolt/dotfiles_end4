@@ -44,6 +44,9 @@ return {
           "--completion-style=detailed",
           "--header-insertion=iwyu", -- Enable automatic header insertion
         },
+        init_options = {
+          fallbackFlags = { "-std=c++23" },
+        },
       })
 
       -- Configure TypeScript/JavaScript LSP

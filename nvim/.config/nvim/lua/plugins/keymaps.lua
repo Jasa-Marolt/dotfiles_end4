@@ -33,14 +33,15 @@ end, { desc = "Stop persistence" })
 -- end, { desc = "Highlight line using TS namespace" })
 
 -- Outside (Normal Mode): Open or Focus
-vim.keymap.set("n", "<C-.>", function()
+function OpenAndFocusTerminal()
     local term = Snacks.terminal.get(nil, { cwd = vim.fn.getcwd() })
     if term and term.win and vim.api.nvim_win_is_valid(term.win) then
         vim.api.nvim_set_current_win(term.win)
     elseif term then
         term:toggle()
     end
-end, { desc = "Open/Focus Terminal" })
+end
+vim.keymap.set("n", "<C-.>", OpenAndFocusTerminal, { desc = "Open/Focus Terminal" })
 
 -- Hide/Toggle off
 vim.keymap.set("t", "<C-.>", function()
@@ -131,7 +132,21 @@ vim.keymap.set("n", "di,", delete_small_parentheses, {
 })
 
 -- Set the keybinding (e.g., <leader>rb for "Run Build")
-vim.keymap.set("n", "<leader>rb", run_build_cmd, { desc = "Run BUILD: from file" })
+vim.keymap.set("n", "<leader>rm", function()
+    OpenAndFocusTerminal()
+    local term = Snacks.terminal.get(nil, { cwd = vim.fn.getcwd() })
+    if not term or not term.buf then
+        Snacks.notify("no terminal found")
+        return
+    end
+
+    local chan = vim.bo[term.buf].channel
+    if chan then
+        vim.fn.chansend(chan, "make\n")
+    else
+        Snacks.notify("terminal not ready")
+    end
+end, { desc = "Run BUILD: from file" })
 
 -- Normal Mode mappings
 vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", { desc = "Increase window height" })
