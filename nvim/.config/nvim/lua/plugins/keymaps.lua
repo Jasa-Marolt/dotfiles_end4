@@ -19,6 +19,12 @@ vim.keymap.set("n", "<leader>qd", function()
     require("persistence").stop()
 end, { desc = "Stop persistence" })
 
+vim.keymap.set("n", "<leader>qd", function()
+    local qf = vim.fn.getqflist()
+    table.remove(qf, vim.fn.line(".") - 1)
+    vim.fn.setqflist(qf, "r")
+end, { desc = "Remove current quickfix item" })
+
 -- highlight a line
 -- vim.keymap.set("n", "č", function()
 --     local buf = vim.api.nvim_get_current_buf()
