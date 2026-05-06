@@ -1,3 +1,5 @@
+
+source /usr/share/cachyos-fish-config/cachyos-config.fish
 function fish_prompt -d "Write out the prompt"
     # This shows up as USER@HOST /home/user/ >, with the directory colored
     # $USER and $hostname are set by fish, so you can just use them
