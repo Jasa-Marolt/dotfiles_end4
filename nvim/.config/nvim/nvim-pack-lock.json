@@ -4,6 +4,10 @@
       "rev": "a62e1083a3cfe8b6b206e7d3d33a51091df25357",
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
+    "bg.nvim": {
+      "rev": "85da2c68409820466753b50c2e6f699517778a17",
+      "src": "https://github.com/typicode/bg.nvim"
+    },
     "blink.cmp": {
       "rev": "49f211fe5d729df53df4c042d7c3464cf47d199e",
       "src": "https://github.com/saghen/blink.cmp",
@@ -38,6 +42,10 @@
       "rev": "bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3",
       "src": "https://github.com/rebelot/kanagawa.nvim"
     },
+    "lualine.nvim": {
+      "rev": "131a558e13f9f28b15cd235557150ccb23f89286",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
     "mason-lspconfig.nvim": {
       "rev": "eaa34887d444cb002e1b165fac399ae4bbc771f7",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
@@ -54,6 +62,11 @@
       "rev": "17c448b0f3f29c0857a3436fc64e1d7cb9267ec3",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
+    "neo-tree.nvim": {
+      "rev": "84c75e7a7e443586f60508d12fc50f90d9aee14e",
+      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim",
+      "version": "3.0.0 - 4.0.0"
+    },
     "neogen": {
       "rev": "23e7e9f883d01289ebd90e98025acc860ea26366",
       "src": "https://github.com/danymat/neogen"
@@ -65,6 +78,10 @@
     "neoscroll.nvim": {
       "rev": "c8d29979cb0cb3a2437a8e0ae683fd82f340d3b8",
       "src": "https://github.com/karb94/neoscroll.nvim"
+    },
+    "nui.nvim": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
     },
     "nvim-dap": {
       "rev": "45a69eba683a2c448dd9ecfc4de89511f0646b5f",
@@ -97,6 +114,10 @@
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "nvim-web-devicons": {
+      "rev": "2795c26c916bb3c57dde308b82be51971fa92747",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "other.nvim": {
       "rev": "1d48e090f6d1d53dda9fb5094af3f2006ebbb858",

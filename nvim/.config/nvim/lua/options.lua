@@ -1,7 +1,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+vim.g.colorscheme = "kanagawa"
 
 -- general options
+
 vim.opt.swapfile = false -- disable swap files
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -23,9 +25,9 @@ vim.opt.signcolumn = "yes"
 
 -- Search
 vim.opt.hlsearch = false
-vim.o.incsearch = true -- starts searching as soon as typing, without enter needed
+vim.o.incsearch = true  -- starts searching as soon as typing, without enter needed
 vim.o.ignorecase = true -- ignore letter case when searching
-vim.o.smartcase = true -- case insentive unless capitals used in searcher
+vim.o.smartcase = true  -- case insentive unless capitals used in searcher
 
 -- Folds
 vim.opt.foldmethod = "indent"

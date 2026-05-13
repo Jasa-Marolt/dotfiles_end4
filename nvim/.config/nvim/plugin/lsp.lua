@@ -5,6 +5,10 @@ vim.pack.add {
 }
 require("mason").setup()
 require("mason-lspconfig").setup()
+
+vim.lsp.enable("eslint")
+vim.lsp.enable("clangd")
+
 print("setting up lsp")
 -- placing the builtin LSP config here for organization reasons.
 vim.lsp.config("*", {

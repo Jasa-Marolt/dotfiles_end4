@@ -1,3 +1,30 @@
+local function cycle_colorscheme(step)
+  local schemes = vim.fn.getcompletion("", "color")
+  if #schemes == 0 then
+    return
+  end
+
+  local current = vim.g.colors_name or ""
+  local index = 0
+  for i, name in ipairs(schemes) do
+    if name == current then
+      index = i
+      break
+    end
+  end
+
+  local next_index = ((index - 1 + step) % #schemes) + 1
+  vim.cmd.colorscheme(schemes[next_index])
+end
+
+vim.keymap.set("n", "<leader>sn", function()
+  cycle_colorscheme(1)
+end, { desc = "Colorscheme: next" })
+
+vim.keymap.set("n", "<leader>sm", function()
+  cycle_colorscheme(-1)
+end, { desc = "Colorscheme: previous" })
+
 -- CTRL+s to save in normal or input mode
 vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd>w<CR>", { desc = "Save buffer" })
 
