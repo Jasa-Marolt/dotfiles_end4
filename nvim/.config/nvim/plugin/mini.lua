@@ -19,11 +19,11 @@ require("mini.move").setup({
   },
 })
 
-local minifiles = require("mini.files")
-minifiles.setup({
-  mappings = {
-    go_in_plus = "<CR>",
-  },
-  use_as_default_explorer = false,
-})
-vim.keymap.set("n", "<leader>vw", minifiles.open, { desc = "View Working directory (Mini Files)" })
+-- local minifiles = require("mini.files")
+-- minifiles.setup({
+--   mappings = {
+--     go_in_plus = "<CR>",
+--   },
+--   use_as_default_explorer = false,
+-- })
+-- vim.keymap.set("n", "<leader>vw", minifiles.open, { desc = "View Working directory (Mini Files)" })
