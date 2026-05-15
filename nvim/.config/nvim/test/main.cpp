@@ -1,4 +1,6 @@
 #include <cstdio>
+
+void SomeFunctions() {}
 int main(int argc, char *argv[]) {
   printf("hello world\n");
   printf("hello world\n");

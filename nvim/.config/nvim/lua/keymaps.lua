@@ -1,3 +1,4 @@
+-- Cycle colorscheme with <leader> sn (next) , <leader>sm (prev)
 local function cycle_colorscheme(step)
   local schemes = vim.fn.getcompletion("", "color")
   if #schemes == 0 then
@@ -25,9 +26,14 @@ vim.keymap.set("n", "<leader>sm", function()
   cycle_colorscheme(-1)
 end, { desc = "Colorscheme: previous" })
 
+--change tabs with alt[num]
+
+vim.keymap.set("n", "<A-1>", "1gt", { desc = "Change to tab 1" })
+vim.keymap.set("n", "<A-2>", "2gt", { desc = "Change to tab 2" })
+vim.keymap.set("n", "<A-3>", "3gt", { desc = "Change to tab 3" })
+
 -- CTRL+s to save in normal or input mode
 vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd>w<CR>", { desc = "Save buffer" })
-
 
 -- Close window
 vim.keymap.set({ "n" }, "<leader>wc", "<cmd>q<CR>", { desc = "Window close" })

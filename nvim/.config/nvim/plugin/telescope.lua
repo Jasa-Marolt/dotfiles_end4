@@ -1,16 +1,16 @@
 vim.pack.add({
-	"https://github.com/nvim-lua/plenary.nvim",
-	"https://github.com/nvim-telescope/telescope.nvim",
-	"https://github.com/nvim-telescope/telescope-ui-select.nvim",
-	"https://github.com/AckslD/nvim-neoclip.lua",
+  "https://github.com/nvim-lua/plenary.nvim",
+  "https://github.com/nvim-telescope/telescope.nvim",
+  "https://github.com/nvim-telescope/telescope-ui-select.nvim",
+  "https://github.com/AckslD/nvim-neoclip.lua",
 })
 
 require("telescope").setup({
-	extensions = {
-		["ui-select"] = {
-			require("telescope.themes").get_dropdown({}),
-		},
-	},
+  extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown({}),
+    },
+  },
 })
 require("neoclip").setup()
 
@@ -28,5 +28,8 @@ vim.keymap.set("n", "<leader>fs", builtin.current_buffer_fuzzy_find, { desc = "T
 vim.keymap.set("n", "<leader>fq", builtin.quickfix, { desc = "Telescope quickfix" })
 vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "Telescope LPS references" })
 vim.keymap.set("n", "<leader>fc", ":Telescope neoclip<CR>", { desc = "Telescope clipboard" })
+
+vim.keymap.set("n", "<leader>ss", ":Telescope lsp_document_symbols<CR>", { desc = "Telescope document symbols" })
+vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Telescope buffers" })
 
 vim.keymap.set("n", "<leader>sc", builtin.colorscheme, { desc = "Telescope Switch colorscheme" })
