@@ -34,6 +34,13 @@ PACMAN_PACKAGES=(
   nvim
   code
   lazygit
+  cmake
+
+  #c++
+  raylib
+
+  #osdev
+  nasm
 )
 
 # Packages to install from the AUR via yay
