@@ -34,6 +34,7 @@ PACMAN_PACKAGES=(
   nvim
   code
   lazygit
+  make
   cmake
 
   #c++
@@ -41,6 +42,13 @@ PACMAN_PACKAGES=(
 
   #osdev
   nasm
+
+  #embedded
+  arm-none-eabi-newlib
+  arm-none-eabi-gcc
+  arm-none-eabi-gdb
+  arm-none-eabi-binutils
+  stlink
 )
 
 # Packages to install from the AUR via yay
