@@ -36,6 +36,7 @@ PACMAN_PACKAGES=(
   lazygit
   make
   cmake
+  ninja
 
   #c++
   raylib
@@ -49,6 +50,11 @@ PACMAN_PACKAGES=(
   arm-none-eabi-gdb
   arm-none-eabi-binutils
   stlink
+  #python
+  uv
+
+  #logic analyzer
+  sigrok-cli pulseview sigrok-firmware-fx2lafw
 )
 
 # Packages to install from the AUR via yay
