@@ -1,4 +1,3 @@
-
 source /usr/share/cachyos-fish-config/cachyos-config.fish
 function fish_prompt -d "Write out the prompt"
     # This shows up as USER@HOST /home/user/ >, with the directory colored
@@ -10,9 +9,9 @@ end
 
 if not set -q SSH_AUTH_SOCK
     #start the ssh agenttest
-    eval (ssh-agent -c) > /dev/null
-#add the github ssh key
-    ssh-add ~/.ssh/id_ed25519 2> /dev/null
+    eval (ssh-agent -c) >/dev/null
+    #add the github ssh key
+    ssh-add ~/.ssh/id_ed25519 2>/dev/null
 end
 
 if status is-interactive # Commands to run in interactive sessions can go here
@@ -29,10 +28,21 @@ if status is-interactive # Commands to run in interactive sessions can go here
 
     # Aliases
     alias pamcan pacman
-    alias nivm 'nvim'
-    alias ls 'eza --icons'
+    alias nivm nvim
+    alias ls 'eza --icons=auto'
     alias clear "printf '\033[2J\033[3J\033[1;1H'"
     alias q 'qs -c ii'
     alias ssh "kitten ssh"
-    
+
+end
+function esp
+    git config --global --get-all safe.directory | grep -q '^/opt/esp-idf$'
+    or git config --global --add safe.directory /opt/esp-idf
+
+    source /opt/esp-idf/export.fish
+
+    function idf
+        idf.py $argv
+    end
+
 end
