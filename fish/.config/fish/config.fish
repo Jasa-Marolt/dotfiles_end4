@@ -1,4 +1,5 @@
 source /usr/share/cachyos-fish-config/cachyos-config.fish
+
 function fish_prompt -d "Write out the prompt"
     # This shows up as USER@HOST /home/user/ >, with the directory colored
     # $USER and $hostname are set by fish, so you can just use them
@@ -49,4 +50,8 @@ if status is-interactive # Commands to run in interactive sessions can go here
 
     end
 
+    function multicd
+        echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+    end
+    abbr --add dotdot --regex '^\.\.+$' --function multicd
 end

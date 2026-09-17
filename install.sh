@@ -55,6 +55,9 @@ PACMAN_PACKAGES=(
 
   #logic analyzer
   sigrok-cli pulseview sigrok-firmware-fx2lafw
+
+  #for fun
+  gitlogue
 )
 
 # Packages to install from the AUR via yay
