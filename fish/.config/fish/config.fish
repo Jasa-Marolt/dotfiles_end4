@@ -34,6 +34,7 @@ if status is-interactive # Commands to run in interactive sessions can go here
     alias clear "printf '\033[2J\033[3J\033[1;1H'"
     alias q 'qs -c ii'
     alias ssh "kitten ssh"
+    alias info='info --vi-keys'
 
     fish_vi_key_bindings
     # fish_vi_key_bindings [--no-erase] [INIT_MODE]
