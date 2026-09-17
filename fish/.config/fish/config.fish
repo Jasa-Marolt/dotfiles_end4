@@ -34,15 +34,19 @@ if status is-interactive # Commands to run in interactive sessions can go here
     alias q 'qs -c ii'
     alias ssh "kitten ssh"
 
-end
-function esp
-    git config --global --get-all safe.directory | grep -q '^/opt/esp-idf$'
-    or git config --global --add safe.directory /opt/esp-idf
+    fish_vi_key_bindings
+    # fish_vi_key_bindings [--no-erase] [INIT_MODE]
 
-    source /opt/esp-idf/export.fish
+    function esp
+        git config --global --get-all safe.directory | grep -q '^/opt/esp-idf$'
+        or git config --global --add safe.directory /opt/esp-idf
 
-    function idf
-        idf.py $argv
+        source /opt/esp-idf/export.fish
+
+        function idf
+            idf.py $argv
+        end
+
     end
 
 end
