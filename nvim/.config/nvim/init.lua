@@ -1,2 +1,17 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
+--
+-- :LazyExtras -> add python, clangd, snak
+-- :LspInfo
+-- :ConformInfo
+--
+--  remember to use "." for repeat commands
+--  works for repeating inputted text as well
+--
+--  <leader> n to read error messages
+--
+-- "df(" -> delete bulk, or
+-- "ds" -> to search to where to delete
+--
+-- ] or ć and [ or č for jumping to next or prev
+-- "ctrl+ space" for incremental select
 require("config.lazy")

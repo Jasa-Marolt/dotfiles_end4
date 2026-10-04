@@ -6,5 +6,7 @@ vim.keymap.set({ "n", "x", "o" }, "ć", "]", { remap = true })
 
 vim.keymap.set("t", "<C-e>", [[<C-\><C-n>]], { noremap = true })
 
-vim.keymap.set({ "n", "x" }, "j", "jzz", { remap = false })
-vim.keymap.set({ "n", "x" }, "k", "kzz", { remap = false })
+-- vim.keymap.set({ "n", "x" }, "j", "jzz", { remap = false })
+-- vim.keymap.set({ "n", "x" }, "k", "kzz", { remap = false })
+
+-- vim.keymap.set({ "n", "x" }, "q:", "<Nop>", { silent = true })
