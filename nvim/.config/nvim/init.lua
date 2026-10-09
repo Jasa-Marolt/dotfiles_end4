@@ -14,4 +14,6 @@
 --
 -- ] or ć and [ or č for jumping to next or prev
 -- "ctrl+ space" for incremental select
+--
+-- CAPS_LOCK + [H|L] moves between tabs
 require("config.lazy")
