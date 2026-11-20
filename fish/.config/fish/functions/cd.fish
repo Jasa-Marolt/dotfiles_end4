@@ -1,4 +1,4 @@
-function cd 
+function cd
     # Check if 'z' (zoxide) function is available
     if functions -q z
         # If 'z' is found, try to use it
@@ -21,13 +21,17 @@ function cd
 
         if test $countAll -lt 15
             # If few items, show all, sorted by modified time (eza fix)
-            eza -A --sort modified
+            eza -A --sort modified --color=always --group-directories-first --icons=always
         else
             # If many items, check only visible ones
             set countVisible (eza | wc -l)
             if test $countVisible -lt 30
                 # If few visible items, show them, sorted by modified time (eza fix)
-                eza --sort modified
+                eza --sort modified --reverse --color=always --group-directories-first --icons=always
+            else
+                # If many items exist, show the 10 most recently modified and an indicator
+                eza --sort modified --reverse --color=always --group-directories-first --icons=always | head -n 10
+                echo '...'
             end
         end
     end

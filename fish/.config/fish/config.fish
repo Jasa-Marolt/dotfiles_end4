@@ -30,7 +30,9 @@ if status is-interactive # Commands to run in interactive sessions can go here
     # Aliases
     alias pamcan pacman
     alias nivm nvim
-    alias ls 'eza --icons=auto'
+
+    #ls ll, and others are defined in /usr/share/cachyos-fish-config/cachyos-config.fish at startup, functions/ls.fish wont work
+    alias ls='eza --color=always --group-directories-first --icons=always'
     alias clear "printf '\033[2J\033[3J\033[1;1H'"
     alias q 'qs -c ii'
     # alias ssh "kitten ssh"
